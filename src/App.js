@@ -14,6 +14,7 @@ const Header = ({title, totalPlayers}) => {
 }
 
 
+
 const Player = ({name, score, removePlayer, id}) => {
   return (
     <div className="player">
