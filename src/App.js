@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {Header} from "./components/Header";
 import {Player} from "./components/Player";
+import {AddPlayerForm} from "./components/AddPlayerForm";
 
 
 class App extends React.Component {
@@ -13,7 +14,6 @@ class App extends React.Component {
       {name: 'PARK', score: 60, id: 4},
     ]
   }
-
   render() {
     return (
       <div className="scoreboard">
@@ -24,7 +24,7 @@ class App extends React.Component {
                     id={player.id} key={player.id}
                     removePlayer={this.handleRemovePlayer}
                     changeScore={this.handleChangeScore}/>)
-        }
+        }		<AddPlayerForm />
       </div>
     )
   }
