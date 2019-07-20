@@ -7,27 +7,23 @@ export  class Counter extends React.Component {
   // 3. setState()는 merge(overwriting)
   // 4. setState() 비동기로 처리된다.
   // 이벤트 우측에는 함수 선언문이 와야 된다.
-  state = {
-	score: 0,
-	number: 1
-  }
+
 
   // arrow function안에 쓰이는 this는 lexical this
-  changeScore = (delta) => {
+/*  changeScore = (delta) => {
 	console.log('incrementScore: ', this);
 	// this.state.score += 1;
 	// this.setState({score: this.state.score + delta});
 	this.setState(prevState => ({score: prevState.score + delta}));
-  }
-
+  }*/
   render() {
 	return (
 	  <div className="counter">
 		<button className="counter-action decrement"
-				onClick={() => this.changeScore(-1)}> -</button>
-		<span className="counter-score">{this.state.score}</span>
+				onClick={() => this.props.changeScore(this.props.id,-1)}> -</button>
+		<span className="counter-score">{this.props.score}</span>
 		<button className="counter-action increment"
-				onClick={() => this.changeScore(1)}> +</button>
+				onClick={() => this.props.changeScore(this.props.id,1)}> +</button>
 	  </div>
 	)
   }
