@@ -14,6 +14,9 @@ class App extends React.Component {
       {name: 'PARK', score: 60, id: 4},
     ]
   }
+
+  maxId = 4;
+
   render() {
     return (
       <div className="scoreboard">
@@ -24,7 +27,8 @@ class App extends React.Component {
                     id={player.id} key={player.id}
                     removePlayer={this.handleRemovePlayer}
                     changeScore={this.handleChangeScore}/>)
-        }		<AddPlayerForm />
+        }
+        <AddPlayerForm addPlayer={this.handleAppPlayer}/>
       </div>
     )
   }
@@ -50,6 +54,19 @@ class App extends React.Component {
         players: [...prevState.players]
       }
     })
+  }
+
+  handleAppPlayer = (name) => {
+    console.log(name);
+    //name을 가진 player객체를 this.state.players 배열에 추가
+  //key와 값이 이름이 동일하면 생략가능
+    const players = {name ,score : 0, id : ++this.maxId}
+    this.setState(
+      prevState=> {
+        prevState.players.push(players);
+        return {players : prevState.players}
+      }
+    )
   }
 }
 export default App;
