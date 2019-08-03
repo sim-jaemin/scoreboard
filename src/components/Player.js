@@ -11,15 +11,17 @@ export class Player extends React.Component {
 
 		return	(
 			<div className="player">
-			<span className="player-name">
-				<button className="remove-player" onClick={() => removePlayer(id)}>x</button>
-				{name}
-			</span>
-				<Counter id={id} score={score}  />
+			  <span className="player-name">
+				  <button className="remove-player" onClick={() => removePlayer(id)}>x</button>
+				  {this.props.children}
+				  {name}
+			  </span>
+			  <Counter id={id} score={score}  />
 			</div>
 		);
 	}
-
+	/*
+	//아래 코드는 해당 데이터만 렌더링하기때문에 왕관표시에 문제가 발생하여 전체를 랜더링하기 위하여 주석처리 2019-08-03
 	componentWillReceiveProps(nextProps, nextContext) {
 	  //console.log('componentWillReceiveProps', nextProps);
 	}
@@ -28,6 +30,9 @@ export class Player extends React.Component {
 	  //console.log('shouldComponentUpdate', nextProps);
 	  return nextProps.score !== this.props.score ? true:false;
 	}
+
+
+	 */
 }
 
 
