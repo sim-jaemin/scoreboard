@@ -44,13 +44,12 @@ export class Counter extends React.Component {
 // 	changeScore: PropTypes.func
 // }
 
-
-//디스패치 : 자식이 -> 부모에게 통신
-//액션을 디스패치하는 펑션을 props로 매핑
+// dispatch : 자식이 => 부모에게 통신
+// 액션을 디스패치하는 펑션을 props로 매핑
 const mapActionToProps = (dispatch) => ({
-  changeScore: (id,delta) => dispatch(changeScore(id,delta))
-});
+	// 왼쪽은 props, 오른쪽은 펑션(액션을 디스패치하는)
+	changeScore: (id, delta) => dispatch(changeScore(id, delta))
+})
 
-// eslint-disable-next-line no-undef
-export default connect(null,mapActionToProps)(Counter);
-
+// 커링 펑션, HoC
+export default connect(null, mapActionToProps)(Counter);
