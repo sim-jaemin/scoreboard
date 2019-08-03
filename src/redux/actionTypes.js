@@ -1,0 +1,3 @@
+export const ADD_PLAYER='ADD_PLAYER';
+export const CHANGE_SORE='CHANGE_SORE';
+export const REMOVE_PLAYER='REMOVE_PLAYER';
